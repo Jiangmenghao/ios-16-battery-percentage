@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  font-family: SF Pro SC,SF Pro Display,SF Pro Icons,AOS Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif;
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(#191919, #3c3c3c);
+}
+
+.battery {
+  position: relative;
+  padding: 6px;
+  width: 200px;
+  height: 80px;
+  background-color: #272727;
+  border-radius: 26px;
+  border: 6px solid #fff;
+}
+
+.battery::after {
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  content: '';
+  width: 12px;
+  height: 24px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.number {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 200px;
+  height: 80px;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 80px;
+  text-align: center;
+}
+
+.color-number {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 200px;
+  height: 80px;
+  border-radius: 15px;
+  color: #272727;
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 80px;
+  text-align: center;
+}
+
+.control {
+  color: #fff;
+}

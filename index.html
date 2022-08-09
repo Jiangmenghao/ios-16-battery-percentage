@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS 16 Battery Percentage</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+		<section class="battery">
+			<span class="number">
+				{{ percentage }}
+			</span>
+			<span class="color-number" :style="colorNumberStyle">
+				{{ percentage }}
+			</span>
+		</section>
+		<section class="control">
+			<input type="range" id="value" v-model="percentage">
+			<label for="value">电量百分比</label>
+		</section>
+  </div>
+</body>
+<script src="./vue@2"></script>
+<script>
+const app = new Vue({
+  el: '#app',
+  data: {
+    percentage: 65,
+  },
+	computed: {
+		colorNumberStyle() {
+			return {
+				backgroundColor: this.percentage > 20 ? '#67CD67' : '#FD3C2B',
+				clipPath: `inset(0 ${ (100 - this.percentage) / 100 * 200 }px 0 0 round 15px)`,
+			}
+		}
+	},
+})
+</script>
+</html>
