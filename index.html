@@ -11,15 +11,19 @@
   <div id="app">
 		<section class="battery">
 			<span class="number">
-				{{ percentage }}
+				{{ isCharging ? '' : percentage }}
 			</span>
 			<span class="color-number" :style="colorNumberStyle">
-				{{ percentage }}
+				{{ isCharging ? '' : percentage }}
 			</span>
+			<img src="./static/lightning.svg" alt="Charging Icon" class="lightning" :class="{ 'charging': isCharging }">
 		</section>
 		<section class="control">
 			<input type="range" id="value" v-model="percentage">
-			<label for="value">电量百分比</label>
+			<label for="value">Battery</label>
+			<br>
+			<input type="checkbox"  id="charging-checkbox" v-model="isCharging">
+			<label for="charging-checkbox">Charging</label>
 		</section>
   </div>
 </body>
@@ -29,11 +33,12 @@ const app = new Vue({
   el: '#app',
   data: {
     percentage: 65,
+		isCharging: false,
   },
 	computed: {
 		colorNumberStyle() {
 			return {
-				backgroundColor: this.percentage > 20 ? '#67CD67' : '#FD3C2B',
+				backgroundColor: this.percentage > 19 ? this.isCharging ? '#67CD67' : '#fff' : '#FD3C2B',
 				clipPath: `inset(0 ${ (100 - this.percentage) / 100 * 200 }px 0 0 round 15px)`,
 			}
 		}

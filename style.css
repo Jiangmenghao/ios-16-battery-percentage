@@ -63,6 +63,21 @@ body {
   font-weight: bold;
   line-height: 80px;
   text-align: center;
+  transition: background 0.6s;
+}
+
+.lightning {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  translate: -50%;
+  height: 118px;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.lightning.charging {
+  opacity: 1;
 }
 
 .control {
